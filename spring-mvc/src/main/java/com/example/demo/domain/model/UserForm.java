@@ -29,8 +29,8 @@ public class UserForm {
 	private Integer age;
 
 	//備考欄、入力数が20文字以下であること
-	@Max(value = 20, message = "備考は20文字以内で入力してください。", groups = Group2.class)
-	private String remarks;
+	@Size(max = 20, message = "備考は20文字以内で入力してください。", groups = Group2.class)
+	private String note;
 
 	public interface Group1 {
 	}
@@ -41,5 +41,9 @@ public class UserForm {
 	@GroupSequence({ Group1.class, Group2.class })
 	public interface Groups {
 	}
+
+	
+
+	
 
 }
