@@ -1,7 +1,3 @@
-DROP TABLE if exists profiles_histories CASCADE;
-DROP SEQUENCE if exists prifiles_history_id_seq CASCADE;
-CREATE SEQUENCE profiles_history_id_seq;
-ALTER SEQUENCE profiles_history_id_seq OWNER TO postgres;
 CREATE TABLE profiles_histories (
     id INTEGER DEFAULT nextval('profiles_history_id_seq'::regclass),
     profiles_id INTEGER NOT NULL,
