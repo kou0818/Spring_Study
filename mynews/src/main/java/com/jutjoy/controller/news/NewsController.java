@@ -1,5 +1,7 @@
 package com.jutjoy.controller.news;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,9 +10,12 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import com.jutjoy.domain.news.form.news.NewsCreateForm;
-import com.jutjoy.domain.news.service.news.NewsCreateService;
+import com.jutjoy.domain.entity.news.News;
+import com.jutjoy.domain.form.news.NewsCreateForm;
+import com.jutjoy.domain.service.news.NewsCreateService;
+import com.jutjoy.domain.service.news.NewsListService;
 
 @Controller
 public class NewsController {
@@ -46,4 +51,18 @@ public class NewsController {
 	public String complete() {
 		return "news/complete";
 	}
+	
+	//2-4で追記
+	@Autowired
+	private NewsListService newsListService;
+	
+    @GetMapping("/news/list")
+    public String list(@RequestParam(name = "title", required = false) String title, Model model) {
+
+        List<News> newsList = newsListService.list(title);
+        model.addAttribute("newsList", newsList);
+        model.addAttribute("title", title);
+
+        return "news/list";
+    }
 }

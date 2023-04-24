@@ -1,4 +1,4 @@
-package com.jutjoy.domain.news.form.news;
+package com.jutjoy.domain.form.news;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;

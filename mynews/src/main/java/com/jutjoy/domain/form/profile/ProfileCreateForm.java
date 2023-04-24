@@ -1,4 +1,4 @@
-package com.jutjoy.domain.profile.form.profile;
+package com.jutjoy.domain.form.profile;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
@@ -11,6 +11,7 @@ public class ProfileCreateForm {
 	//バリデーション
 	//名前
 	@NotEmpty(message = "*名前は必ず入力してください。")
+	@Size(max = 20, message = "※名前は20字以内で入力してください")
 	private String name;
 	
 	//性別
@@ -19,7 +20,7 @@ public class ProfileCreateForm {
 	
 	//趣味
 	@NotEmpty(message = "*趣味は必ず入力してください。")
-	@Size(max = 200, message = "＊趣味は200文字以内で設定してください。")
+	@Size(max = 255, message = "※趣味は255文字以内で入力してください。")
 	private String hobby;
 	
 	//自己紹介

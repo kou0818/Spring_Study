@@ -1,4 +1,4 @@
-package com.jutjoy.domain.news.entity.news;
+package com.jutjoy.domain.entity.news;
 
 import java.sql.Timestamp;
 

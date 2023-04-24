@@ -1,11 +1,11 @@
-package com.jutjoy.domain.profile.service.profile;
+package com.jutjoy.domain.service.profile;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.jutjoy.domain.profile.entity.profile.Profile;
-import com.jutjoy.domain.profile.form.profile.ProfileCreateForm;
-import com.jutjoy.domain.profile.repository.ProfileRepository;
+import com.jutjoy.domain.entity.profile.Profile;
+import com.jutjoy.domain.form.profile.ProfileCreateForm;
+import com.jutjoy.domain.repository.profile.ProfileRepository;
 
 import lombok.AllArgsConstructor;
 
