@@ -25,14 +25,18 @@ public class NewsController {
 	//	return "news/create";
 	//}
 
+	@Autowired
+	private NewsCreateService newsCreateService;
+
+	//2-4で追記
+	@Autowired
+	private NewsListService newsListService;
+
 	//createメソッド追加
 	@GetMapping("/news/create")
 	public String create(@ModelAttribute("form") NewsCreateForm newsCreateForm) {
 		return "news/create";
 	}
-
-	@Autowired
-	private NewsCreateService newsCreateService;
 
 	@PostMapping("/news/create")
 	public String create(@Validated @ModelAttribute("form") NewsCreateForm newsCreateForm,
@@ -51,18 +55,14 @@ public class NewsController {
 	public String complete() {
 		return "news/complete";
 	}
-	
-	//2-4で追記
-	@Autowired
-	private NewsListService newsListService;
-	
-    @GetMapping("/news/list")
-    public String list(@RequestParam(name = "title", required = false) String title, Model model) {
 
-        List<News> newsList = newsListService.list(title);
-        model.addAttribute("newsList", newsList);
-        model.addAttribute("title", title);
+	@GetMapping("/news/list")
+	public String list(@RequestParam(name = "title", required = false) String title, Model model) {
 
-        return "news/list";
-    }
+		List<News> newsList = newsListService.list(title);
+		model.addAttribute("newsList", newsList);
+		model.addAttribute("title", title);
+
+		return "news/list";
+	}
 }

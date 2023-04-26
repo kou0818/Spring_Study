@@ -20,13 +20,17 @@ import com.jutjoy.domain.service.profile.ProfileListService;
 @Controller
 public class ProfileController {
 
+	@Autowired
+	private ProfileCreateService ProfileCreateService;
+	
+	// 2-4で追記
+    @Autowired
+    private ProfileListService profileListService;
+	
 	@GetMapping("/profile/create")
 	public String create(@ModelAttribute("form") ProfileCreateForm ProfileCreateForm) {
 		return "profile/create";
 	}
-	
-	@Autowired
-	private ProfileCreateService ProfileCreateService;
 	
 	@PostMapping("/profile/create")
     public String create(@Validated @ModelAttribute("form") ProfileCreateForm ProfileCreateForm,
@@ -46,10 +50,8 @@ public class ProfileController {
         return "profile/complete";
     }
     
-    //2-4で追記
-    @Autowired
-    private ProfileListService profileListService;
     
+    // 2-4で追記
     @GetMapping("/profile/list")
     public String list(@RequestParam(name = "name", required = false) String name, Model model) {
     	
