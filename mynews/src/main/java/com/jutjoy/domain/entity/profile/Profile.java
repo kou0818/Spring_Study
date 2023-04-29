@@ -1,6 +1,7 @@
 package com.jutjoy.domain.entity.profile;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +9,7 @@ import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.data.annotation.CreatedDate;
@@ -46,4 +48,8 @@ public class Profile {
     @LastModifiedDate
     @Column(name = "updated_date")
     private Timestamp updatedDate;
+    
+    // 2-6課題
+    @OneToMany(mappedBy = "profile")
+    private List<ProfileHistories> histories;
 }
