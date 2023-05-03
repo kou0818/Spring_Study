@@ -37,7 +37,7 @@ public class ProfileController {
 	
 	// 2-5課題
 	@Autowired
-	private ProfileDeleteService profiledeleteService;
+	private ProfileDeleteService profileDeleteService;
 
 	@GetMapping("/profile/create")
 	public String create(@ModelAttribute("form") ProfileCreateForm ProfileCreateForm) {
@@ -101,7 +101,7 @@ public class ProfileController {
 	// 2-5課題
 	@PostMapping("/profile/delete")
 	public String delte(@RequestParam(name = "id", required = true) int id, Model model) {
-		profiledeleteService.delete(id);
+		profileDeleteService.delete(id);
 		return "redirect:/profile/list";
 	}
 }

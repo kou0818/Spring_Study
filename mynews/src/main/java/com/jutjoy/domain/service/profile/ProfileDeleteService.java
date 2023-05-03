@@ -12,12 +12,12 @@ import lombok.AllArgsConstructor;
 public class ProfileDeleteService {
 
 	@Autowired
-	private ProfileRepository profilePrepository;
+	private ProfileRepository profileRepository;
 	
 	public void delete(Integer id) {
 		
 		// プロフィール削除処理
-		profilePrepository.deleteById(id);
+		profileRepository.deleteById(id);
 		
 	}
 }
